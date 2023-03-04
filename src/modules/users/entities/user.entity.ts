@@ -7,7 +7,7 @@ import { UserCount } from './user-count.output';
 @ObjectType()
 export class User {
   @Field(() => ID, { nullable: false })
-  id!: number;
+  id!: string;
 
   @Field(() => String, { nullable: false })
   email!: string;

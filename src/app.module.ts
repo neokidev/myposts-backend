@@ -3,6 +3,7 @@ import { Logger, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { PrismaModule } from 'nestjs-prisma';
 import { AppController } from './app.controller';
+import { AppService } from './app.service';
 import { AppResolver } from './app.resolver';
 import config from 'src/common/configs/config';
 import { loggingMiddleware } from 'src/common/middleware/logging.middleware';
@@ -27,10 +28,9 @@ import { PostsModule } from './modules/posts/posts.module';
     }),
 
     UsersModule,
-
     PostsModule,
   ],
   controllers: [AppController],
-  providers: [AppResolver],
+  providers: [AppService, AppResolver],
 })
 export class AppModule {}
