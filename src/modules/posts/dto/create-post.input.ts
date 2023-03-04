@@ -1,6 +1,5 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-// import { UserCreateNestedOneWithoutPostsInput } from '../user/user-create-nested-one-without-posts.input';
 
 @InputType()
 export class CreatePostInput {
@@ -10,9 +9,12 @@ export class CreatePostInput {
   @Field(() => String, { nullable: false })
   title!: string;
 
-  @Field(() => String, { nullable: true })
-  content?: string;
+  @Field(() => String, { nullable: false })
+  content!: string;
 
-  @Field(() => Boolean, { nullable: true })
-  published?: boolean;
+  @Field(() => Boolean, { nullable: false })
+  published!: boolean;
+
+  @Field(() => Date, { nullable: true })
+  publishedAt?: Date | string;
 }

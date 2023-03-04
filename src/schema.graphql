@@ -3,9 +3,10 @@
 # ------------------------------------------------------
 
 input CreatePostInput {
-  content: String
+  content: String!
   id: String
-  published: Boolean
+  published: Boolean!
+  publishedAt: DateTime
   title: String!
 }
 
@@ -29,10 +30,11 @@ type Mutation {
 }
 
 type Post {
-  content: String
+  content: String!
   createdAt: DateTime!
   id: ID!
-  published: Boolean
+  published: Boolean!
+  publishedAt: DateTime
   title: String!
   updatedAt: DateTime!
 }
@@ -50,6 +52,7 @@ input UpdatePostInput {
   content: String
   id: String!
   published: Boolean
+  publishedAt: DateTime
   title: String
 }
 

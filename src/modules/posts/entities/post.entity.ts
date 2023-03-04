@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
-import { User } from '../../users/entities/user.entity';
 
 @ObjectType()
 export class Post {
@@ -11,11 +10,14 @@ export class Post {
   @Field(() => String, { nullable: false })
   title!: string;
 
-  @Field(() => String, { nullable: true })
-  content!: string | null;
+  @Field(() => String, { nullable: false })
+  content!: string;
 
-  @Field(() => Boolean, { nullable: true, defaultValue: false })
-  published!: boolean | null;
+  @Field(() => Boolean, { nullable: false })
+  published!: boolean;
+
+  @Field(() => Date, { nullable: true })
+  publishedAt!: Date | null;
 
   @Field(() => Date, { nullable: false })
   createdAt!: Date;
