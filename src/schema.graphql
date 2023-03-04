@@ -3,8 +3,10 @@
 # ------------------------------------------------------
 
 input CreatePostInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  content: String
+  id: String
+  published: Boolean
+  title: String!
 }
 
 input CreateUserInput {
@@ -15,15 +17,13 @@ input CreateUserInput {
 type Mutation {
   createPost(createPostInput: CreatePostInput!): Post!
   createUser(createUserInput: CreateUserInput!): User!
-  removePost(id: Int!): Post!
+  removePost(id: String!): Post!
   removeUser(id: Int!): User!
   updatePost(updatePostInput: UpdatePostInput!): Post!
   updateUser(updateUserInput: UpdateUserInput!): User!
 }
 
 type Post {
-  author: User
-  authorId: String
   content: String
   id: ID!
   published: Boolean
@@ -40,9 +40,10 @@ type Query {
 }
 
 input UpdatePostInput {
-  """Example field (placeholder)"""
-  exampleField: Int
-  id: Int!
+  content: String
+  id: String!
+  published: Boolean
+  title: String
 }
 
 input UpdateUserInput {
@@ -56,7 +57,6 @@ type User {
   email: String!
   id: ID!
   name: String
-  posts: [Post!]
 }
 
 type UserCount {

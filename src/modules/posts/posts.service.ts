@@ -8,7 +8,11 @@ export class PostsService {
   constructor(private readonly prisma: PrismaService) {}
 
   create(createPostInput: CreatePostInput) {
-    return 'This action adds a new post';
+    return this.prisma.post.create({
+      data: {
+        ...createPostInput,
+      },
+    });
   }
 
   findAll() {
@@ -19,11 +23,11 @@ export class PostsService {
     return this.prisma.post.findUnique({ where: { id } });
   }
 
-  update(id: number, updatePostInput: UpdatePostInput) {
+  update(id: string, updatePostInput: UpdatePostInput) {
     return `This action updates a #${id} post`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} post`;
   }
 }

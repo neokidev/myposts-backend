@@ -12,12 +12,7 @@ export class UsersService {
   }
 
   findAll() {
-    return this.prisma.user.findMany({
-      include: {
-        _count: {},
-        posts: {},
-      },
-    });
+    return this.prisma.user.findMany();
   }
 
   findOne(id: number) {

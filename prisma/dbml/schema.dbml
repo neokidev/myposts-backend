@@ -6,7 +6,6 @@ Table User {
   id String [pk]
   email String [unique, not null]
   name String
-  posts Post [not null]
 }
 
 Table Post {
@@ -14,8 +13,4 @@ Table Post {
   title String [not null]
   content String
   published Boolean [default: false]
-  author User
-  authorId String
 }
-
-Ref: Post.authorId > User.id

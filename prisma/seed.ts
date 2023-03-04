@@ -10,14 +10,17 @@ const main = async () => {
     data: {
       name: 'john',
       email: 'john@gmail.com',
-      posts: {
-        create: {
-          title: 'first article',
-          content: 'hello!world!',
-          published: true,
-        },
-      },
+      // posts: {
+      //   create: {
+      //     title: 'first article',
+      //     content: 'hello!world!',
+      //     published: true,
+      //   },
+      // },
     },
+  });
+  await prisma.post.create({
+    data: { title: 'first article', content: 'hello!world!', published: true },
   });
   console.log('💫 seed finished.');
 };
