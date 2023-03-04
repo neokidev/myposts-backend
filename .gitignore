@@ -36,3 +36,5 @@ lerna-debug.log*
 
 # Local env files
 .env
+
+src/@generated
