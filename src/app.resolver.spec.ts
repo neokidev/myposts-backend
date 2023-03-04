@@ -1,31 +1,30 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { Chance } from 'chance';
-import { AppController } from './app.controller';
+import { AppResolver } from './app.resolver';
 import { AppService } from './app.service';
 
 const chance = new Chance();
 
-describe('AppController', () => {
-  let appController: AppController;
+describe('AppResolver', () => {
+  let appResolver: AppResolver;
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
-      controllers: [AppController],
-      providers: [AppService],
+      providers: [AppResolver, AppService],
     }).compile();
 
-    appController = app.get<AppController>(AppController);
+    appResolver = app.get<AppResolver>(AppResolver);
   });
 
-  describe('root', () => {
+  describe('helloWorld', () => {
     it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+      expect(appResolver.helloWorld()).toBe('Hello World!');
     });
   });
-  describe('hello/:name', () => {
+  describe('hello', () => {
     it('should return "Hello ${name}!"', () => {
       const name = chance.name();
-      expect(appController.getHelloName(name)).toBe(`Hello ${name}!`);
+      expect(appResolver.hello(name)).toBe(`Hello ${name}!`);
     });
   });
 });
