@@ -33,7 +33,7 @@ type Post {
 type Query {
   hello(name: String!): String!
   helloWorld: String!
-  post(id: Int!): Post!
+  post(id: String!): Post!
   posts: [Post!]!
   user(id: Int!): User!
   users: [User!]!
