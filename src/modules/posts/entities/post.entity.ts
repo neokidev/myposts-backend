@@ -17,9 +17,9 @@ export class Post {
   @Field(() => Boolean, { nullable: true, defaultValue: false })
   published!: boolean | null;
 
-  // @Field(() => String, { nullable: true })
-  // authorId!: string | null;
-  //
-  // @Field(() => User, { nullable: true })
-  // author?: User | null;
+  @Field(() => Date, { nullable: false })
+  createdAt!: Date;
+
+  @Field(() => Date, { nullable: false })
+  updatedAt!: Date;
 }

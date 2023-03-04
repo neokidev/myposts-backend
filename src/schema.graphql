@@ -14,6 +14,11 @@ input CreateUserInput {
   exampleField: Int!
 }
 
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Mutation {
   createPost(createPostInput: CreatePostInput!): Post!
   createUser(createUserInput: CreateUserInput!): User!
@@ -25,9 +30,11 @@ type Mutation {
 
 type Post {
   content: String
+  createdAt: DateTime!
   id: ID!
   published: Boolean
   title: String!
+  updatedAt: DateTime!
 }
 
 type Query {
