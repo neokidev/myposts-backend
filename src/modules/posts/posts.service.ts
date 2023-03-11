@@ -24,7 +24,14 @@ export class PostsService {
   }
 
   update(id: string, updatePostInput: UpdatePostInput) {
-    return `This action updates a #${id} post`;
+    return this.prisma.post.update({
+      where: {
+        id: updatePostInput.id,
+      },
+      data: {
+        ...updatePostInput,
+      },
+    });
   }
 
   remove(id: string) {
