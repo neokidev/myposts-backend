@@ -31,7 +31,8 @@
     "start:db": "pnpm migrate:up && pnpm prisma:generate && pnpm seed",
     "seed": "prisma db seed",
     "postinstall": "pnpm prisma:generate",
-    "docker:compose": "docker compose up -d"
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down"
   },
   "dependencies": {
     "@devoxa/prisma-relay-cursor-connection": "^2.2.2",
