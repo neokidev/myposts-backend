@@ -35,6 +35,10 @@ export class PostsService {
   }
 
   remove(id: string) {
-    return `This action removes a #${id} post`;
+    return this.prisma.post.delete({
+      where: {
+        id,
+      },
+    });
   }
 }
